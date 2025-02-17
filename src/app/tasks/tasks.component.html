@@ -1,0 +1,22 @@
+@if (isAddingTask) {
+<app-new-task (dismissDialog)="onDismissDialog()" [userId]="userId" />
+}
+
+<section id="tasks">
+  <header>
+    <h2>{{ userName }}'s Tasks</h2>
+    <menu>
+      <button (click)="openNewTaskDialog()">Add Task</button>
+    </menu>
+  </header>
+
+  <ul>
+    @if (userTasks.length === 0) {
+    <p>No Tasks To Show!</p>
+    } @else { @for (task of userTasks; track $index) {
+    <li>
+      <app-task [task]="task" />
+    </li>
+    } }
+  </ul>
+</section>
