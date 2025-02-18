@@ -1,14 +1,11 @@
-import { Component, EventEmitter, Input, Output } from '@angular/core';
-import { TaskComponent } from './task/task.component';
-import { NewTaskComponent } from './new-task/new-task.component';
-import { type NewTaskData } from './task/task.model';
+import { Component, Input } from '@angular/core';
 import { TaskService } from './tasks.service';
 
 @Component({
   selector: 'app-tasks',
   templateUrl: './tasks.component.html',
   styleUrl: './tasks.component.css',
-  imports: [TaskComponent, NewTaskComponent],
+  standalone: false,
 })
 export class TasksComponent {
   @Input({ required: true }) userName!: string;
